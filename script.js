@@ -51,10 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check login state
     const checkLoginState = () => {
         if (localStorage.getItem('isLoggedIn') === 'true') {
+            document.cookie = "auth=true; path=/; max-age=86400";
             authOverlay.classList.add('hidden');
             logoutBtn.style.display = 'flex';
             document.body.style.overflow = 'auto';
+            
         } else {
+            document.cookie = "auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
             authOverlay.classList.add('hidden'); // Starts hidden, page is fully visible
             logoutBtn.style.display = 'none';
             document.body.style.overflow = 'auto';

