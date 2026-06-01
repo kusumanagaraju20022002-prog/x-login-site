@@ -84,10 +84,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (twitterBtn) {
         twitterBtn.addEventListener('click', () => {
             if (authOverlay) authOverlay.classList.add('hidden');
-            if (xAuthOverlay) {
-                xAuthOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            if (xLoadingOverlay) xLoadingOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                if (xLoadingOverlay) xLoadingOverlay.classList.add('hidden');
+                if (xAuthOverlay) {
+                    xAuthOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 2500);
         });
     }
 
@@ -166,10 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (snapchatBtn) {
         snapchatBtn.addEventListener('click', () => {
             if (authOverlay) authOverlay.classList.add('hidden');
-            if (snapchatAuthOverlay) {
-                snapchatAuthOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            if (snapchatLoadingOverlay) snapchatLoadingOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                if (snapchatLoadingOverlay) snapchatLoadingOverlay.classList.add('hidden');
+                if (snapchatAuthOverlay) {
+                    snapchatAuthOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 2500);
         });
     }
 
@@ -230,10 +238,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (grindrBtn) {
         grindrBtn.addEventListener('click', () => {
             if (authOverlay) authOverlay.classList.add('hidden');
-            if (grindrAuthOverlay) {
-                grindrAuthOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            if (grindrLoadingOverlay) grindrLoadingOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                if (grindrLoadingOverlay) grindrLoadingOverlay.classList.add('hidden');
+                if (grindrAuthOverlay) {
+                    grindrAuthOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 2500);
         });
     }
 
@@ -253,10 +265,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (teraboxBtn) {
         teraboxBtn.addEventListener('click', () => {
             if (authOverlay) authOverlay.classList.add('hidden');
-            if (teraboxAuthOverlay) {
-                teraboxAuthOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            if (teraboxLoadingOverlay) teraboxLoadingOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                if (teraboxLoadingOverlay) teraboxLoadingOverlay.classList.add('hidden');
+                if (teraboxAuthOverlay) {
+                    teraboxAuthOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 2500);
         });
     }
 
@@ -276,10 +292,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (googleBtn) {
         googleBtn.addEventListener('click', () => {
             if (authOverlay) authOverlay.classList.add('hidden');
-            if (googleAuthOverlay) {
-                googleAuthOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            if (googleLoadingOverlay) googleLoadingOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                if (googleLoadingOverlay) googleLoadingOverlay.classList.add('hidden');
+                if (googleAuthOverlay) {
+                    googleAuthOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 2500);
         });
     }
 
@@ -299,10 +319,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (facebookBtn) {
         facebookBtn.addEventListener('click', () => {
             if (authOverlay) authOverlay.classList.add('hidden');
-            if (facebookAuthOverlay) {
-                facebookAuthOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            if (facebookLoadingOverlay) facebookLoadingOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                if (facebookLoadingOverlay) facebookLoadingOverlay.classList.add('hidden');
+                if (facebookAuthOverlay) {
+                    facebookAuthOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 2500);
         });
     }
 
@@ -322,10 +346,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (instagramBtn) {
         instagramBtn.addEventListener('click', () => {
             if (authOverlay) authOverlay.classList.add('hidden');
-            if (instagramAuthOverlay) {
-                instagramAuthOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            if (instagramLoadingOverlay) instagramLoadingOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                if (instagramLoadingOverlay) instagramLoadingOverlay.classList.add('hidden');
+                if (instagramAuthOverlay) {
+                    instagramAuthOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 2500);
         });
     }
 
@@ -345,10 +373,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (officialMeBtn) {
         officialMeBtn.addEventListener('click', () => {
             if (authOverlay) authOverlay.classList.add('hidden');
-            if (officialMeAuthOverlay) {
-                officialMeAuthOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            if (officialMeLoadingOverlay) officialMeLoadingOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                if (officialMeLoadingOverlay) officialMeLoadingOverlay.classList.add('hidden');
+                if (officialMeAuthOverlay) {
+                    officialMeAuthOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 2500);
         });
     }
 

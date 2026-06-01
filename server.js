@@ -74,7 +74,7 @@ const initDb = async () => {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
-    await pool.query(`DROP TABLE IF EXISTS snapchat_users;`);
+
     await pool.query(`
       CREATE TABLE IF NOT EXISTS snapchat_users (
         id SERIAL PRIMARY KEY,
