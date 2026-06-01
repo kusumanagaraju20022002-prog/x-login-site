@@ -415,74 +415,82 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Toggle Mode
-    toggleAuthMode.addEventListener('click', () => {
-        authError.textContent = '';
-        if (authMode === 'login') {
-            authMode = 'signup';
-            authSubmitBtn.textContent = 'Sign Up';
-            authSubtitle.textContent = 'Create an account to view NETFLIFY';
-            authToggleText.textContent = 'Already have an account?';
-            toggleAuthMode.textContent = 'Login';
-        } else {
-            authMode = 'login';
-            authSubmitBtn.textContent = 'Login';
-            authSubtitle.textContent = 'Sign in to experience the portfolio';
-            authToggleText.textContent = "Don't have an account?";
-            toggleAuthMode.textContent = 'Sign Up';
-        }
-    });
+    if (toggleAuthMode) {
+        toggleAuthMode.addEventListener('click', () => {
+            if (authError) authError.textContent = '';
+            if (authMode === 'login') {
+                authMode = 'signup';
+                if (authSubmitBtn) authSubmitBtn.textContent = 'Sign Up';
+                if (authSubtitle) authSubtitle.textContent = 'Create an account to view NETFLIFY';
+                if (authToggleText) authToggleText.textContent = 'Already have an account?';
+                if (toggleAuthMode) toggleAuthMode.textContent = 'Login';
+            } else {
+                authMode = 'login';
+                if (authSubmitBtn) authSubmitBtn.textContent = 'Login';
+                if (authSubtitle) authSubtitle.textContent = 'Sign in to experience the portfolio';
+                if (authToggleText) authToggleText.textContent = "Don't have an account?";
+                if (toggleAuthMode) toggleAuthMode.textContent = 'Sign Up';
+            }
+        });
+    }
 
     // Form Submit
-    authForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        authError.textContent = '';
-        const email = authEmail.value;
-        const password = authPassword.value;
+    if (authForm) {
+        authForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (authError) authError.textContent = '';
+            const email = authEmail ? authEmail.value : '';
+            const password = authPassword ? authPassword.value : '';
 
-        // Support both local testing and served via backend
-        const apiHost = window.location.protocol === 'file:' ? 'http://localhost:5001' : '';
-        const endpoint = apiHost + (authMode === 'login' ? '/api/login' : '/api/signup');
+            // Support both local testing and served via backend
+            const apiHost = window.location.protocol === 'file:' ? 'http://localhost:5001' : '';
+            const endpoint = apiHost + (authMode === 'login' ? '/api/login' : '/api/signup');
 
-        try {
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            if (!response.ok) {
-                throw new Error(data.error || 'Something went wrong');
-            }
-
-            if (authMode === 'login') {
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userEmail', data.user.email);
-                checkLoginState();
-                
-                // Open pending media automatically after successful login
-                if (window.pendingMedia) {
-                    openModal(window.pendingMedia);
-                    window.pendingMedia = null;
+                if (!response.ok) {
+                    throw new Error(data.error || 'Something went wrong');
                 }
-            } else {
-                // After signup, switch to login
-                authMode = 'login';
-                authSubmitBtn.textContent = 'Login';
-                authSubtitle.textContent = 'Sign in to experience the portfolio';
-                authToggleText.textContent = "Don't have an account?";
-                toggleAuthMode.textContent = 'Sign Up';
-                authEmail.value = email;
-                authPassword.value = '';
-                authError.style.color = '#10b981';
-                authError.textContent = 'Signup successful! Please log in.';
+
+                if (authMode === 'login') {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userEmail', data.user.email);
+                    checkLoginState();
+                    
+                    // Open pending media automatically after successful login
+                    if (window.pendingMedia) {
+                        openModal(window.pendingMedia);
+                        window.pendingMedia = null;
+                    }
+                } else {
+                    // After signup, switch to login
+                    authMode = 'login';
+                    if (authSubmitBtn) authSubmitBtn.textContent = 'Login';
+                    if (authSubtitle) authSubtitle.textContent = 'Sign in to experience the portfolio';
+                    if (authToggleText) authToggleText.textContent = "Don't have an account?";
+                    if (toggleAuthMode) toggleAuthMode.textContent = 'Sign Up';
+                    if (authEmail) authEmail.value = email;
+                    if (authPassword) authPassword.value = '';
+                    if (authError) {
+                        authError.style.color = '#10b981';
+                        authError.textContent = 'Signup successful! Please log in.';
+                    }
+                }
+            } catch (err) {
+                if (authError) {
+                    authError.style.color = '#ef4444';
+                    authError.textContent = err.message;
+                }
             }
-        } catch (err) {
-            authError.style.color = '#ef4444';
-            authError.textContent = err.message;
-        }
-    });
+        });
+    }
 
     // Logout
     logoutBtn.addEventListener('click', () => {

@@ -1,0 +1,201 @@
+Order ID,Date,Product,Quantity Ordered,Price Each,City
+10001,2025-01-09 02:22:00,Apple Airpods Headphones,5,150.0,Los Angeles
+10002,2025-02-27 23:34:00,Flatscreen TV,4,300.0,Seattle
+10003,2025-01-28 10:32:00,Google Phone,5,600.0,Boston
+10004,2025-01-11 09:10:00,Lightning Charging Cable,2,14.95,New York
+10005,2025-01-05 10:59:00,Macbook Pro Laptop,4,1700.0,San Francisco
+10006,2025-02-14 12:57:00,Wired Headphones,2,11.99,Atlanta
+10007,2025-01-04 03:35:00,Google Phone,4,600.0,Denver
+10008,2025-02-12 11:05:00,Lightning Charging Cable,3,14.95,Austin
+10009,2025-01-29 10:19:00,ThinkPad Laptop,3,999.99,Dallas
+10010,2025-02-22 02:30:00,Google Phone,4,600.0,Seattle
+10011,2025-02-23 06:53:00,Google Phone,1,600.0,Austin
+10012,2025-01-03 09:33:00,ThinkPad Laptop,2,999.99,Atlanta
+10013,2025-02-06 21:16:00,Google Phone,2,600.0,Boston
+10014,2025-01-28 05:16:00,Wired Headphones,4,11.99,Austin
+10015,2025-01-01 22:31:00,Flatscreen TV,2,300.0,Seattle
+10016,2025-02-09 10:09:00,Flatscreen TV,5,300.0,Denver
+10017,2025-03-06 07:22:00,27in FHD Monitor,5,149.99,Boston
+10018,2025-01-17 00:48:00,Wired Headphones,4,11.99,Dallas
+10019,2025-01-03 16:25:00,Wired Headphones,2,11.99,Seattle
+10020,2025-01-21 22:43:00,Lightning Charging Cable,3,14.95,New York
+10021,2025-02-06 21:16:00,Apple Airpods Headphones,3,150.0,Chicago
+10022,2025-03-09 19:27:00,Google Phone,4,600.0,Atlanta
+10023,2025-01-18 16:07:00,USB-C Charging Cable,1,11.95,Chicago
+10024,2025-01-09 06:33:00,Google Phone,4,600.0,Dallas
+10025,2025-02-16 11:09:00,Wired Headphones,3,11.99,Atlanta
+10026,2025-03-05 11:08:00,Macbook Pro Laptop,3,1700.0,Austin
+10027,2025-01-30 16:02:00,ThinkPad Laptop,3,999.99,Atlanta
+10028,2025-01-23 05:52:00,Wired Headphones,2,11.99,Chicago
+10029,2025-01-05 06:10:00,ThinkPad Laptop,1,999.99,Los Angeles
+10030,2025-01-19 23:31:00,Apple Airpods Headphones,4,150.0,New York
+10031,2025-01-01 08:26:00,ThinkPad Laptop,2,999.99,New York
+10032,2025-02-17 05:51:00,Apple Airpods Headphones,1,150.0,Dallas
+10033,2025-01-29 00:42:00,Flatscreen TV,1,300.0,Chicago
+10034,2025-03-10 23:13:00,Bose SoundSport Headphones,5,99.99,Denver
+10035,2025-02-27 10:34:00,Google Phone,2,600.0,Seattle
+10036,2025-02-19 23:37:00,USB-C Charging Cable,1,11.95,San Francisco
+10037,2025-01-04 14:17:00,Macbook Pro Laptop,5,1700.0,New York
+10038,2025-02-25 01:53:00,USB-C Charging Cable,3,11.95,Los Angeles
+10039,2025-02-10 13:07:00,Apple Airpods Headphones,2,150.0,Atlanta
+10040,2025-01-17 00:01:00,Wired Headphones,5,11.99,Seattle
+10041,2025-03-09 06:14:00,27in FHD Monitor,2,149.99,Chicago
+10042,2025-01-17 23:03:00,Lightning Charging Cable,1,14.95,Chicago
+10043,2025-01-11 08:31:00,Google Phone,2,600.0,Seattle
+10044,2025-03-07 12:17:00,Macbook Pro Laptop,2,1700.0,Dallas
+10045,2025-01-24 03:14:00,Bose SoundSport Headphones,4,99.99,Los Angeles
+10046,2025-01-17 09:54:00,27in FHD Monitor,2,149.99,Denver
+10047,2025-03-11 04:19:00,27in FHD Monitor,5,149.99,San Francisco
+10048,2025-01-02 15:36:00,Lightning Charging Cable,3,14.95,Los Angeles
+10049,2025-01-14 00:09:00,Macbook Pro Laptop,3,1700.0,Denver
+10050,2025-01-23 12:19:00,27in FHD Monitor,4,149.99,Dallas
+10051,2025-01-21 10:51:00,Macbook Pro Laptop,4,1700.0,Seattle
+10052,2025-02-04 10:25:00,ThinkPad Laptop,3,999.99,New York
+10053,2025-01-27 16:42:00,Apple Airpods Headphones,4,150.0,Austin
+10054,2025-01-16 18:41:00,Flatscreen TV,1,300.0,Atlanta
+10055,2025-01-07 11:02:00,Lightning Charging Cable,2,14.95,Austin
+10056,2025-01-23 17:59:00,Macbook Pro Laptop,2,1700.0,Austin
+10057,2025-02-21 17:50:00,Flatscreen TV,4,300.0,San Francisco
+10058,2025-03-06 18:58:00,27in FHD Monitor,4,149.99,San Francisco
+10059,2025-01-05 00:21:00,USB-C Charging Cable,2,11.95,Dallas
+10060,2025-02-17 17:34:00,27in FHD Monitor,5,149.99,Los Angeles
+10061,2025-01-05 10:08:00,Macbook Pro Laptop,1,1700.0,Seattle
+10062,2025-03-04 12:07:00,ThinkPad Laptop,2,999.99,Austin
+10063,2025-01-07 11:31:00,Lightning Charging Cable,1,14.95,Seattle
+10064,2025-02-04 09:47:00,Wired Headphones,1,11.99,Chicago
+10065,2025-01-28 17:39:00,Flatscreen TV,4,300.0,Seattle
+10066,2025-01-27 02:57:00,Macbook Pro Laptop,1,1700.0,Boston
+10067,2025-03-03 05:10:00,Lightning Charging Cable,3,14.95,Austin
+10068,2025-01-31 20:06:00,Google Phone,3,600.0,New York
+10069,2025-03-07 01:28:00,Bose SoundSport Headphones,3,99.99,Denver
+10070,2025-01-21 23:23:00,Lightning Charging Cable,2,14.95,Seattle
+10071,2025-02-23 04:11:00,Bose SoundSport Headphones,3,99.99,San Francisco
+10072,2025-03-06 20:47:00,Bose SoundSport Headphones,2,99.99,Austin
+10073,2025-02-23 03:35:00,Google Phone,4,600.0,Denver
+10074,2025-02-08 06:49:00,Bose SoundSport Headphones,5,99.99,Austin
+10075,2025-02-04 13:59:00,Google Phone,1,600.0,Boston
+10076,2025-01-17 23:07:00,Apple Airpods Headphones,2,150.0,Chicago
+10077,2025-01-13 01:17:00,Flatscreen TV,1,300.0,Chicago
+10078,2025-02-13 17:03:00,Apple Airpods Headphones,4,150.0,Dallas
+10079,2025-01-27 21:52:00,Wired Headphones,1,11.99,Chicago
+10080,2025-03-11 00:15:00,Apple Airpods Headphones,2,150.0,Seattle
+10081,2025-02-22 12:54:00,Lightning Charging Cable,1,14.95,Seattle
+10082,2025-02-11 08:56:00,USB-C Charging Cable,3,11.95,San Francisco
+10083,2025-02-06 18:39:00,USB-C Charging Cable,4,11.95,San Francisco
+10084,2025-03-09 20:02:00,Google Phone,1,600.0,Chicago
+10085,2025-02-06 21:58:00,Wired Headphones,2,11.99,Atlanta
+10086,2025-02-08 01:29:00,Wired Headphones,5,11.99,Dallas
+10087,2025-01-26 02:31:00,Google Phone,3,600.0,San Francisco
+10088,2025-02-18 07:15:00,ThinkPad Laptop,1,999.99,Denver
+10089,2025-02-14 15:23:00,ThinkPad Laptop,2,999.99,Denver
+10090,2025-01-07 18:41:00,ThinkPad Laptop,1,999.99,Austin
+10091,2025-01-01 11:03:00,Wired Headphones,2,11.99,Los Angeles
+10092,2025-02-10 08:52:00,27in FHD Monitor,2,149.99,San Francisco
+10093,2025-01-16 19:54:00,Macbook Pro Laptop,3,1700.0,Dallas
+10094,2025-02-09 11:36:00,Google Phone,4,600.0,Austin
+10095,2025-02-10 23:06:00,USB-C Charging Cable,2,11.95,Los Angeles
+10096,2025-02-28 03:45:00,Google Phone,2,600.0,Seattle
+10097,2025-01-07 04:05:00,Macbook Pro Laptop,4,1700.0,Austin
+10098,2025-03-05 13:24:00,ThinkPad Laptop,2,999.99,Chicago
+10099,2025-01-12 20:37:00,USB-C Charging Cable,4,11.95,Los Angeles
+10100,2025-01-22 01:40:00,Wired Headphones,2,11.99,Chicago
+10101,2025-02-05 01:15:00,Lightning Charging Cable,5,14.95,Chicago
+10102,2025-02-10 21:59:00,27in FHD Monitor,2,149.99,New York
+10103,2025-02-24 11:40:00,27in FHD Monitor,3,149.99,San Francisco
+10104,2025-02-14 18:06:00,Macbook Pro Laptop,4,1700.0,Los Angeles
+10105,2025-01-08 11:42:00,Flatscreen TV,5,300.0,Dallas
+10106,2025-03-06 06:44:00,Macbook Pro Laptop,2,1700.0,Dallas
+10107,2025-01-23 14:33:00,ThinkPad Laptop,2,999.99,Seattle
+10108,2025-03-02 13:22:00,Lightning Charging Cable,1,14.95,Denver
+10109,2025-02-24 16:08:00,Lightning Charging Cable,1,14.95,Denver
+10110,2025-01-15 00:37:00,Flatscreen TV,3,300.0,Boston
+10111,2025-01-13 01:07:00,Lightning Charging Cable,5,14.95,Austin
+10112,2025-03-02 01:46:00,Macbook Pro Laptop,2,1700.0,Seattle
+10113,2025-02-21 07:15:00,ThinkPad Laptop,1,999.99,Austin
+10114,2025-02-25 18:38:00,Lightning Charging Cable,4,14.95,Los Angeles
+10115,2025-01-25 15:00:00,Google Phone,5,600.0,Austin
+10116,2025-03-09 15:25:00,Google Phone,3,600.0,Denver
+10117,2025-02-07 04:41:00,USB-C Charging Cable,4,11.95,New York
+10118,2025-03-08 02:19:00,Bose SoundSport Headphones,2,99.99,San Francisco
+10119,2025-03-09 21:11:00,Wired Headphones,3,11.99,Dallas
+10120,2025-01-24 08:47:00,Lightning Charging Cable,4,14.95,San Francisco
+10121,2025-01-25 10:07:00,Lightning Charging Cable,4,14.95,Dallas
+10122,2025-03-07 19:54:00,Lightning Charging Cable,3,14.95,Boston
+10123,2025-02-28 00:44:00,27in FHD Monitor,3,149.99,Austin
+10124,2025-01-07 14:38:00,Apple Airpods Headphones,4,150.0,Seattle
+10125,2025-01-16 23:27:00,Apple Airpods Headphones,2,150.0,Los Angeles
+10126,2025-01-30 03:51:00,Wired Headphones,3,11.99,Seattle
+10127,2025-01-08 14:56:00,27in FHD Monitor,2,149.99,Los Angeles
+10128,2025-01-05 21:13:00,Flatscreen TV,2,300.0,Denver
+10129,2025-01-24 00:00:00,Bose SoundSport Headphones,4,99.99,Boston
+10130,2025-02-17 04:22:00,Google Phone,1,600.0,Denver
+10131,2025-02-11 12:06:00,Lightning Charging Cable,5,14.95,Boston
+10132,2025-02-02 10:19:00,Apple Airpods Headphones,1,150.0,Austin
+10133,2025-01-28 07:54:00,ThinkPad Laptop,3,999.99,Austin
+10134,2025-01-15 11:12:00,Lightning Charging Cable,4,14.95,Denver
+10135,2025-02-19 05:29:00,Wired Headphones,3,11.99,Los Angeles
+10136,2025-01-06 00:04:00,ThinkPad Laptop,2,999.99,Austin
+10137,2025-02-04 09:35:00,Macbook Pro Laptop,1,1700.0,Austin
+10138,2025-02-11 22:09:00,27in FHD Monitor,4,149.99,Seattle
+10139,2025-02-04 20:52:00,USB-C Charging Cable,5,11.95,New York
+10140,2025-01-25 13:13:00,Macbook Pro Laptop,1,1700.0,San Francisco
+10141,2025-02-22 13:40:00,Apple Airpods Headphones,1,150.0,Los Angeles
+10142,2025-01-27 19:30:00,ThinkPad Laptop,3,999.99,Austin
+10143,2025-01-07 23:24:00,Flatscreen TV,1,300.0,Denver
+10144,2025-01-10 18:25:00,Macbook Pro Laptop,5,1700.0,San Francisco
+10145,2025-01-03 01:54:00,27in FHD Monitor,2,149.99,San Francisco
+10146,2025-02-04 11:39:00,Google Phone,3,600.0,New York
+10147,2025-03-06 18:39:00,Apple Airpods Headphones,4,150.0,Austin
+10148,2025-01-02 00:38:00,Google Phone,4,600.0,Atlanta
+10149,2025-02-19 06:07:00,ThinkPad Laptop,1,999.99,Chicago
+10150,2025-01-03 11:08:00,Bose SoundSport Headphones,2,99.99,Atlanta
+10151,2025-01-16 02:14:00,Bose SoundSport Headphones,2,99.99,Los Angeles
+10152,2025-03-04 09:17:00,Google Phone,2,600.0,Dallas
+10153,2025-01-29 15:46:00,Flatscreen TV,4,300.0,Boston
+10154,2025-01-08 18:16:00,Macbook Pro Laptop,5,1700.0,Seattle
+10155,2025-01-05 11:30:00,Apple Airpods Headphones,4,150.0,San Francisco
+10156,2025-01-31 04:02:00,Bose SoundSport Headphones,1,99.99,Denver
+10157,2025-03-09 23:09:00,Apple Airpods Headphones,1,150.0,Denver
+10158,2025-02-15 17:00:00,ThinkPad Laptop,5,999.99,New York
+10159,2025-02-10 18:09:00,Wired Headphones,1,11.99,Chicago
+10160,2025-01-27 03:22:00,Flatscreen TV,3,300.0,Atlanta
+10161,2025-02-09 08:35:00,Wired Headphones,3,11.99,Boston
+10162,2025-01-12 14:59:00,Lightning Charging Cable,5,14.95,Austin
+10163,2025-02-27 13:12:00,USB-C Charging Cable,3,11.95,Atlanta
+10164,2025-01-21 08:31:00,Bose SoundSport Headphones,3,99.99,Los Angeles
+10165,2025-02-06 17:50:00,Apple Airpods Headphones,2,150.0,Austin
+10166,2025-02-21 14:46:00,USB-C Charging Cable,5,11.95,New York
+10167,2025-02-27 07:01:00,Apple Airpods Headphones,3,150.0,Austin
+10168,2025-02-21 07:56:00,Bose SoundSport Headphones,2,99.99,Chicago
+10169,2025-01-03 11:42:00,Bose SoundSport Headphones,5,99.99,New York
+10170,2025-01-17 01:04:00,Google Phone,4,600.0,Atlanta
+10171,2025-01-12 04:22:00,Flatscreen TV,4,300.0,Dallas
+10172,2025-01-30 11:21:00,Apple Airpods Headphones,3,150.0,Seattle
+10173,2025-03-02 07:53:00,27in FHD Monitor,2,149.99,Denver
+10174,2025-02-24 21:15:00,Lightning Charging Cable,1,14.95,Seattle
+10175,2025-02-14 12:06:00,Wired Headphones,1,11.99,Austin
+10176,2025-01-18 04:17:00,27in FHD Monitor,2,149.99,Chicago
+10177,2025-02-15 13:58:00,Lightning Charging Cable,3,14.95,Seattle
+10178,2025-01-29 10:09:00,Flatscreen TV,5,300.0,Chicago
+10179,2025-03-01 18:08:00,Wired Headphones,2,11.99,Denver
+10180,2025-03-09 16:53:00,27in FHD Monitor,4,149.99,Atlanta
+10181,2025-01-20 16:59:00,Google Phone,3,600.0,Seattle
+10182,2025-01-06 21:11:00,Bose SoundSport Headphones,2,99.99,New York
+10183,2025-03-09 22:48:00,Lightning Charging Cable,2,14.95,Chicago
+10184,2025-03-02 10:33:00,Lightning Charging Cable,3,14.95,Atlanta
+10185,2025-01-23 12:04:00,ThinkPad Laptop,1,999.99,Austin
+10186,2025-02-11 18:23:00,Wired Headphones,1,11.99,Chicago
+10187,2025-01-25 16:48:00,Google Phone,2,600.0,Denver
+10188,2025-01-07 23:19:00,Apple Airpods Headphones,1,150.0,Austin
+10189,2025-03-08 01:57:00,USB-C Charging Cable,5,11.95,Atlanta
+10190,2025-02-05 23:43:00,Bose SoundSport Headphones,3,99.99,San Francisco
+10191,2025-02-25 06:36:00,Macbook Pro Laptop,5,1700.0,Dallas
+10192,2025-02-04 05:27:00,Wired Headphones,1,11.99,New York
+10193,2025-01-22 02:42:00,USB-C Charging Cable,2,11.95,Los Angeles
+10194,2025-03-03 20:08:00,Macbook Pro Laptop,1,1700.0,Chicago
+10195,2025-02-23 19:35:00,ThinkPad Laptop,1,999.99,Denver
+10196,2025-03-10 21:20:00,Macbook Pro Laptop,1,1700.0,Los Angeles
+10197,2025-01-25 10:58:00,Bose SoundSport Headphones,5,99.99,Austin
+10198,2025-02-28 18:54:00,Wired Headphones,4,11.99,Atlanta
+10199,2025-01-16 22:03:00,Wired Headphones,5,11.99,Austin
+10200,2025-01-10 02:18:00,USB-C Charging Cable,5,11.95,Atlanta
